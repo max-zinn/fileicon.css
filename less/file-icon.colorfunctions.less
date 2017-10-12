@@ -1,0 +1,26 @@
+@import "file-types.less";
+
+.get-color-styles() {
+    @CountFileTypes: length(@file-types);
+    .loop-file-types(@CountFileTypes);
+}
+
+.loop-file-types(@CountFileTypes) when (@CountFileTypes > 0) {
+    .loop-file-types(@CountFileTypes - 1);
+    @file-type: extract(@file-types, @CountFileTypes);
+    @count-suffixes: length(@file-type);
+    @file-type-color: extract(@file-type, 1);
+    .loop-file-type-suffix(@count-suffixes);
+}
+
+.loop-file-type-suffix(@count-suffixes) when (@count-suffixes > 1) {
+    .loop-file-type-suffix(@count-suffixes - 1);
+    @suffix: extract(@file-type, @count-suffixes);
+    &.file-type[data-type=@{suffix}] {
+        color: @file-type-color;
+    }
+}
+.file-icon {
+    background: white;
+    .get-color-styles();
+}
