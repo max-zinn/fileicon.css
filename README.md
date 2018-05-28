@@ -1,4 +1,4 @@
-Languages: [中文文档]
+[![Coverage Status](https://coveralls.io/repos/github/max-zinn/fileicon.css/badge.svg?branch=master)](https://coveralls.io/github/max-zinn/fileicon.css?branch=master)
 
 # Intro
 
